@@ -6,7 +6,6 @@ use App\Models\Tweet;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Tweet\CreateRequest;
 use Illuminate\Http\RedirectResponse;
-// use Illuminate\Http\Request;
 
 class CreateController extends Controller
 {
