@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\ValidationException;
 use Illuminate\View\View;
+use App\Models\User;
 
 class ConfirmablePasswordController extends Controller
 {
@@ -25,8 +26,10 @@ class ConfirmablePasswordController extends Controller
      */
     public function store(Request $request): RedirectResponse
     {
+        /** @var User */
+        $user = $request->user();
         if (! Auth::guard('web')->validate([
-            'email' => $request->user()->email,
+            'email' => $user->email,
             'password' => $request->password,
         ])) {
             throw ValidationException::withMessages([
