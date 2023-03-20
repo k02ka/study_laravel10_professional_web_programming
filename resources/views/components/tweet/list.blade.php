@@ -9,7 +9,10 @@
                 <span class="inline-block rounded-full text-gray-600 bg-gray-100 px-2 py-1 text-xs mb-2">{{ $tweet->user->name }}</span>
                 <p class="text-gray-600">{!! nl2br($tweet->content) !!}</p>
             </div>
-            <div><!-- TODO 編集と削除--></div>
+            <div>
+                <!-- TODO 編集と削除-->
+                <x-tweet.options :tweetId="$tweet->id" :userId="$tweet->user_id"></x-tweet.options>
+            </div>
         </li>
         @endforeach
     </ul>
